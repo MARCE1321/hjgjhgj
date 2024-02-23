@@ -24,13 +24,19 @@ botonFormulario.addEventListener("click",function(evento){
     
 
     //validadndo los datos del usuario
-    if (usuarioBaseDatos==nombreUsuario) {
+  if (usuarioBaseDatos==nombreUsuario && contrasenaBaseDatos==passwordUsario && correoBaseDatos == correoUsuario ) {
         Swal.fire({
             title: "Bienvenido",
             text: "tus credenciales son correctas",
             icon: "success"
           })
-          window.location.href="./src/views/home.html"
+          setTimeout(function(){
+            sessionStorage.setItem("nombre",nombreUsuario)
+            sessionStorage.setItem("correo",correoUsuario)
+            sessionStorage.setItem("contraseña",passwordUsario)
+            window.location.href="./src/views/home.html"},3000)
+          
+          
 
     } else {
         Swal.fire({
